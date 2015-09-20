@@ -1,0 +1,23 @@
+	window.onload = function() {
+		var gridCreator = function(v) {
+			var destination = document.getElementById("gridSquare");
+			var rowEl;
+			var cell;
+			for (var i = 0; i < v; i++) {
+				rowEl = document.createElement("div");
+				rowEl.className = "gridRow";
+				for(var j = 1; j <= v; j++ ) {
+					cell = document.createElement("div");
+					cell.className = "gridCell";
+					rowEl.appendChild(cell);
+				}
+				var $gridSquare = $("#gridSquare");
+				var heightSize = ($gridSquare.height() - v) / v;
+				var widthSize = ($gridSquare.width() - v) / v;
+
+				cell.style.height = heightSize + "px";
+				cell.style.width = widthSize + "px";
+
+				destination.appendChild(rowEl);
+			}
+		}
